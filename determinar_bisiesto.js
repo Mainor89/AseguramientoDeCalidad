@@ -4,7 +4,7 @@
 la función es un número entero positivo, el valor que retorna es un booleano, verdadero en caso 
 que cumpla las condiciones establecidas y falso en caso contrario */
 
-function comprobar_bisiesto(año){
+function comprobar_bisiesto(pYear){
 
 /*Instruccion if que verifica las condiciones para que
 un año sea bisiesto, el año bisisesto debe ser divisible
@@ -14,7 +14,7 @@ en caso que el año cumpla las 2 condiciones anteriores y además es divisible por
 será bisiesto.
 */
 
-if((año%4==0)&((año%100 !=0)|(año%400==0))) { 
+if((pYear%4==0)&((pYear%100 !=0)|(pYear%400==0))) { 
 
 
 return true; //retorna true en caso el año es bisiesto

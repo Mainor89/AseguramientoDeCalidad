@@ -2,12 +2,12 @@
 el año, mes y dia seleccionados y retorna un booleano, true si el dia coincide con el fin de mes 
 y false en caso contrario*/
 
-function funcion_fin_de_mes(año,mes,dia){
+function funcion_fin_de_mes(pYear,mes,dia){
 	
 	     var dias_del_mes = ["31","28","31","30","31","30","31","31","30","31","30","31"];    //array que contiene la cantidad de dias de cada mes
 	     
 		 //se verifica si el año es bisiesto
-	     if(comprobar_bisiesto(parseInt(año))){
+	     if(comprobar_bisiesto(parseInt(pYear))){
 		               dias_del_mes[1]="29";		   //si el año es bisiesto se modifica el array para ajustar la cantidad de dias de febrero
 	     }
 	     
@@ -38,7 +38,7 @@ el mes y dia seleccionados y retorna un booleano, true si el dia coincide con el
 y false en caso contrario, en este caso el año no es necesario, ya que basta saber si el mes seleccionado es diciembre
 y el dia es el 31*/
 	
-function fin_de_año(meses,dias){
+function last_day_of_the_year(meses,dias){
 	
     //se revisa si el mes es diciembre y si el dia es el 31 simultaneamente 
 	if((meses == 12) & (dias== 31)){
@@ -59,17 +59,17 @@ function fin_de_año(meses,dias){
 /*Esta funcion encuentra el dia siguiente a la fecha seleccionada, recibe como parametros
 el año, mes y dia escogidos y retorna un mensaje con la fecha del dia siguiente*/
 
-function encontrar_dia_siguiente(año,mes,dia){
+function encontrar_dia_siguiente(pYear,mes,dia){
 
 
 //Se valida si la fecha es valida
-if(validar_fecha(año,mes,dia)){
+if(validar_fecha(pYear,mes,dia)){
 
    //se verifica si el dia y mes escogidos corresponden al fin de año
-   if(fin_de_año(mes,dia)){
-   var val_entero_año_nuevo = parseInt(año)+1;   //en caso de que la fecha sea fin de año se modifica el valor del año
+   if(last_day_of_the_year(mes,dia)){
+   var val_entero_year_nuevo = parseInt(pYear)+1;   //en caso de que la fecha sea fin de año se modifica el valor del año
 
-   alert("el dia siguiente es: 1 de Enero de "+val_entero_año_nuevo.toString()); //se muestra el mensaje con la fecha del año nuevo
+   alert("el dia siguiente es: 1 de Enero de "+val_entero_year_nuevo.toString()); //se muestra el mensaje con la fecha del año nuevo
 
    }
    
@@ -77,9 +77,9 @@ if(validar_fecha(año,mes,dia)){
    else{
 	   
 	    //este if evalua si la fecha escogida corresponde a fin de mes
-        if(funcion_fin_de_mes(año,mes,dia)){
+        if(funcion_fin_de_mes(pYear,mes,dia)){
               var val_entero_mes_nuevo = parseInt(mes)+1;   //si la fecha es fin de mes, se modifica el mes al mes siguiente
-              alert("el dia siguiente es: 1 de "+val_entero_mes_nuevo.toString()+" del "+año);   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
+              alert("el dia siguiente es: 1 de "+val_entero_mes_nuevo.toString()+" del "+pYear);   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
 
        }
 	   
@@ -87,7 +87,7 @@ if(validar_fecha(año,mes,dia)){
        else{
 		    
             var val_entero_dia_nuevo = parseInt(dia)+1; //se modifica el dia solamente
-            alert("el dia siguiente es: "+ val_entero_dia_nuevo.toString()+" de "+mes+" del "+año);            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
+            alert("el dia siguiente es: "+ val_entero_dia_nuevo.toString()+" de "+mes+" del "+pYear);            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
 
        }
    }
