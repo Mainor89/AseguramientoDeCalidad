@@ -61,14 +61,14 @@ function validar_fecha(pYear,mes,dia){
 		if(Es_numero(pYear)){
 	      var valor_entero_year = parseInt(pYear);   //convierte a entero el string año
           var valor_entero_dia = parseInt(dia);   // convierte a entero el string dia
-	      var cantidad_dias_del_mes = ["31","28","31","30","31","30","31","31","30","31","30","31"];     //arreglo que contiene la cantidad de dias de cada mes en orden, Enero: 31, Febrero 28, etc
+	      var cantidad_dias_del_mes = [31,28,31,30,31,30,31,31,30,31,30,31];     //arreglo que contiene la cantidad de dias de cada mes en orden, Enero: 31, Febrero 28, etc
 
 		  //llamado a la funcion comprobar_bisiesto para verificar si el año es bisiesto
 	      if(comprobar_bisiesto(valor_entero_year)){
-		      cantidad_dias_del_mes[1]="29";    //En caso que el año sea bisiesto se modificara la posicion 1 del array correspondiente a febrero		   
+		      cantidad_dias_del_mes[1]=29;    //En caso que el año sea bisiesto se modificara la posicion 1 del array correspondiente a febrero		   
 	      }
 	
-          var cantidad_dias_del_mes_seleccionado = parseInt(cantidad_dias_del_mes[mes-1]);     //convierte la posicion del array correspondiente al mes seleccionado a un numero entero 
+          var cantidad_dias_del_mes_seleccionado = cantidad_dias_del_mes[mes-1];     //obtiene la posicion del array correspondiente al mes seleccionado
 		  
 		  //analiza si el dia seleccionado se encuentra entre la cantidad de dias del mes escogido, retorna true en caso que si este en el rango de dias posible y false en caso contrario
 		  if(valor_entero_dia <= cantidad_dias_del_mes_seleccionado){

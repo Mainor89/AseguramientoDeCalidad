@@ -4,15 +4,15 @@ y false en caso contrario*/
 
 function funcion_fin_de_mes(pYear,mes,dia){
 	
-	     var dias_del_mes = ["31","28","31","30","31","30","31","31","30","31","30","31"];    //array que contiene la cantidad de dias de cada mes
+	     var dias_del_mes = [31,28,31,30,31,30,31,31,30,31,30,31];    //array que contiene la cantidad de dias de cada mes
 	     
 		 //se verifica si el año es bisiesto
 	     if(comprobar_bisiesto(parseInt(pYear))){
-		               dias_del_mes[1]="29";		   //si el año es bisiesto se modifica el array para ajustar la cantidad de dias de febrero
+		               dias_del_mes[1]=29;		   //si el año es bisiesto se modifica el array para ajustar la cantidad de dias de febrero
 	     }
 	     
 		 var entero_dia_seleccionado= parseInt(dia);   //se convierte el dia seleccionado en entero.
-		 var fin_de_mes = parseInt(dias_del_mes[mes-1]); //se convierte el mes seleccionado en entero.
+		 var fin_de_mes = dias_del_mes[mes-1]; //se convierte el mes seleccionado en entero.
 		 
 		 //se verifica si la cantidad de dias del mes seleccionado coincide con el dia que se eligio
 		 if(fin_de_mes == entero_dia_seleccionado){
@@ -60,7 +60,6 @@ function last_day_of_the_year(meses,dias){
 el año, mes y dia escogidos y retorna un mensaje con la fecha del dia siguiente*/
 
 function encontrar_dia_siguiente(pYear,mes,dia){
-
 
 //Se valida si la fecha es valida
 if(validar_fecha(pYear,mes,dia)){
