@@ -15,16 +15,17 @@ var MonthDays = [
 ];
 
 function Prueba(){
-	alert(CalcularPrimerDia(2015));
-	var monthDates = CalcularMes(2,2016);
-	for(var index = 0, size = monthDates.length; index < size; index++){
-		console.log(monthDates[index].day + " " + monthDates[index].name);
-	}
+	// alert(CalcularPrimerDia(2015));
+	// var monthDates = CalcularMes(2,2016);
+	// for(var index = 0, size = monthDates.length; index < size; index++){
+	// 	console.log(monthDates[index].day + " " + monthDates[index].name);
+	// }
 
-	var monthDates = CalcularMes(2,2018);
-	for(var index = 0, size = monthDates.length; index < size; index++){
-		console.log(monthDates[index].day + " " + monthDates[index].name);
-	}	
+	// var monthDates = CalcularMes(2,2018);
+	// for(var index = 0, size = monthDates.length; index < size; index++){
+	// 	console.log(monthDates[index].day + " " + monthDates[index].name);
+	// }	
+	encontrar_dia_siguiente("2015","3","15");
 }
 
 //Dado un mes y un año retorna la fecha de inicio de ese mes

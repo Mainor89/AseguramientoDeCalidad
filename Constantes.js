@@ -9,7 +9,7 @@ var DaysOfTheWeek = [
 	{id:6, name:"Sábado"}
 	];
 
-//Lista de los meses con los dias que tienen, febrero no esta contemplado como bisiesto
+//Lista de los meses con sus respectivos nombres
 var MonthNames = [
 	{id:0, name:"Enero"},
 	{id:1, name:"Febrero"},
@@ -24,3 +24,4 @@ var MonthNames = [
 	{id:10, name:"Noviembre"},
 	{id:11, name:"Diciembre"}
 ];
+
