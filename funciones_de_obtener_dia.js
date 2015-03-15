@@ -1,28 +1,17 @@
-//Lista de dias para determinar segun la formula el día que será el primero de Enero
-var DaysOfTheWeek = [
-	{id:"0", name:"Domingo"},
-	{id:"1", name:"Lunes"},
-	{id:"2", name:"Martes"},
-	{id:"3", name:"Miércoles"},
-	{id:"4", name:"Jueves"},
-	{id:"5", name:"Viernes"},
-	{id:"6", name:"Sábado"}
-	];
-
 //Lista de los meses con los dias que tienen, febrero no esta contemplado como bisiesto
 var MonthDays = [
-	{id:"0", days:31},
-	{id:"1", days:28},
-	{id:"2", days:31},
-	{id:"3", days:30},
-	{id:"4", days:31},
-	{id:"5", days:30},
-	{id:"6", days:31},
-	{id:"7", days:31},
-	{id:"8", days:30},
-	{id:"9", days:31},
-	{id:"10", days:30},
-	{id:"11", days:31}
+	{id:0, days:31},
+	{id:1, days:28},
+	{id:2, days:31},
+	{id:3, days:30},
+	{id:4, days:31},
+	{id:5, days:30},
+	{id:6, days:31},
+	{id:7, days:31},
+	{id:8, days:30},
+	{id:9, days:31},
+	{id:10, days:30},
+	{id:11, days:31}
 ];
 
 function Prueba(){
@@ -39,14 +28,14 @@ function Prueba(){
 }
 
 //Dado un mes y un año retorna la fecha de inicio de ese mes
-function CalcularPrimerDiaMes(pMonth, pYear){
+function CalcularPrimerDiaMes(pDay, pMonth, pYear){
 	//Calcula el mes, orden de meses Marzo=1, Abril=2, .., Enero =11, Febrero =12
 	var month = ((pMonth + 12) - 2)%12;
 	if(month === 0){
 		month = 12;
 	}	
 	//valor del día que queremos buscar
-	var day = 1;
+	var day = pDay;
 	//primeros dos dígitos del año
 	var century = Math.floor(pYear / 100);
 	//Antes los meses iban de marzo a Febrero, por lo q si se busca el 1 de Enero del 2015
@@ -70,46 +59,25 @@ function CalcularPrimerDiaMes(pMonth, pYear){
 
 //Método que permitira calcular el dia que sera el 1 de Enero para el año dado
 function CalcularPrimerDia(pYear){	
-	var result = CalcularPrimerDiaMes(1,pYear);	
+	var result = CalcularPrimerDiaMes(1, 1, pYear);	
 	return DaysOfTheWeek[result].name;	
 }
 
 //Funcion que dado el mes y año creará todas las fechas de dicho mes
 function CalcularMes(pMonth, pYear){
 	var monthResult = [];
-	var monthStartDay = CalcularPrimerDiaMes(pMonth, pYear);
+	var monthStartDay = CalcularPrimerDiaMes(1, pMonth, pYear);
 	var monthId = pMonth - 1;
+	var monthSize = MonthDays[monthId].days;
 	if(monthId === 1){
-		var bis = ComprobarBisiesto(pYear);
-		if(bis){
-			MonthDays[monthId].days = 29;
-		}else{
-			MonthDays[monthId].days = 28;
+		if(comprobar_bisiesto(pYear)){
+			monthSize = 29;
 		}
 	}
 	monthResult.push({day:1, name:DaysOfTheWeek[monthStartDay].name});
-	for (var day = 2, monthSize = MonthDays[monthId].days; day <= monthSize; day++) {
+	for (var day = 2; day <= monthSize; day++) {
 		monthStartDay++;
 		monthResult.push({day:day, name:DaysOfTheWeek[monthStartDay%7].name});
 	};
 	return monthResult;
-}
-
-
-/*Instruccion if que verifica las condiciones para que
-un año sea bisiesto, el año bisisesto debe ser divisible
-entre 4, además no debe ser divisible entre 100, pero si debe ser divisible entre 400.
-por ejemplo: los años divisibles por 4 son bisiestos siempre y cuando no sean divisibles por 100
-en caso que el año cumpla las 2 condiciones anteriores y además es divisible por 400, ese año
-será bisiesto.
-*/
-function ComprobarBisiesto(pYear){
-	if((pYear%4==0)&((pYear%100 !=0)|(pYear%400==0))) { 
-		return true; //retorna true en caso el año es bisiesto
-	} 
-	else{ 
-	/*En caso que el año no cumpla las condiciones necesarias
-	retorna false*/
-		return false; 
-	}
 }
