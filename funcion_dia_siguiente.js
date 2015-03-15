@@ -63,7 +63,7 @@ function encontrar_dia_siguiente(pYear,mes,dia){
 
 //Se valida si la fecha es valida
 if(validar_fecha(pYear,mes,dia)){
-
+    var val_entero_mes_nuevo = parseInt(mes);   //si la fecha es fin de mes, se modifica el mes al mes siguiente
    //se verifica si el dia y mes escogidos corresponden al fin de año
    if(last_day_of_the_year(mes,dia)){
    var val_entero_year_nuevo = parseInt(pYear)+1;   //en caso de que la fecha sea fin de año se modifica el valor del año
@@ -77,8 +77,8 @@ if(validar_fecha(pYear,mes,dia)){
 	   
 	    //este if evalua si la fecha escogida corresponde a fin de mes
         if(funcion_fin_de_mes(pYear,mes,dia)){
-              var val_entero_mes_nuevo = parseInt(mes)+1;   //si la fecha es fin de mes, se modifica el mes al mes siguiente
-              alert("el dia siguiente es: 1 de "+val_entero_mes_nuevo.toString()+" del "+pYear);   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
+              
+              alert("el dia siguiente es: 1 de "+MonthNames[val_entero_mes_nuevo].name+" del "+pYear);   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
 
        }
 	   
@@ -86,7 +86,7 @@ if(validar_fecha(pYear,mes,dia)){
        else{
 		    
             var val_entero_dia_nuevo = parseInt(dia)+1; //se modifica el dia solamente
-            alert("el dia siguiente es: "+ val_entero_dia_nuevo.toString()+" de "+mes+" del "+pYear);            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
+            alert("el dia siguiente es: "+ val_entero_dia_nuevo.toString()+" de "+MonthNames[val_entero_mes_nuevo].name+" del "+pYear);            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
 
        }
    }
