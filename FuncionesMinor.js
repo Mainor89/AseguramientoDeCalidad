@@ -27,7 +27,12 @@ var MonthDays = [
 
 function Prueba(){
 	alert(CalcularPrimerDia(2015));
-	var monthDates = CalcularMes(3,2015);
+	var monthDates = CalcularMes(2,2016);
+	for(var index = 0, size = monthDates.length; index < size; index++){
+		console.log(monthDates[index].day + " " + monthDates[index].name);
+	}
+
+	var monthDates = CalcularMes(2,2018);
 	for(var index = 0, size = monthDates.length; index < size; index++){
 		console.log(monthDates[index].day + " " + monthDates[index].name);
 	}	
@@ -74,10 +79,37 @@ function CalcularMes(pMonth, pYear){
 	var monthResult = [];
 	var monthStartDay = CalcularPrimerDiaMes(pMonth, pYear);
 	var monthId = pMonth - 1;
+	if(monthId === 1){
+		var bis = ComprobarBisiesto(pYear);
+		if(bis){
+			MonthDays[monthId].days = 29;
+		}else{
+			MonthDays[monthId].days = 28;
+		}
+	}
 	monthResult.push({day:1, name:DaysOfTheWeek[monthStartDay].name});
 	for (var day = 2, monthSize = MonthDays[monthId].days; day <= monthSize; day++) {
 		monthStartDay++;
 		monthResult.push({day:day, name:DaysOfTheWeek[monthStartDay%7].name});
 	};
 	return monthResult;
+}
+
+
+/*Instruccion if que verifica las condiciones para que
+un año sea bisiesto, el año bisisesto debe ser divisible
+entre 4, además no debe ser divisible entre 100, pero si debe ser divisible entre 400.
+por ejemplo: los años divisibles por 4 son bisiestos siempre y cuando no sean divisibles por 100
+en caso que el año cumpla las 2 condiciones anteriores y además es divisible por 400, ese año
+será bisiesto.
+*/
+function ComprobarBisiesto(pYear){
+	if((pYear%4==0)&((pYear%100 !=0)|(pYear%400==0))) { 
+		return true; //retorna true en caso el año es bisiesto
+	} 
+	else{ 
+	/*En caso que el año no cumpla las condiciones necesarias
+	retorna false*/
+		return false; 
+	}
 }
