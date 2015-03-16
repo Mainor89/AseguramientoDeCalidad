@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<head>
 		<title>Asignacion 2</title>
+		<!-- Importando archivos de Javascript -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 		<script src="funciones_de_obtener_dia.js" type="text/javascript"></script>
 		<script src="Constantes.js" type="text/javascript"></script>
 		<script src="determinar_bisiesto.js" type="text/javascript"></script>
 		<script src="funcion_dia_siguiente.js" type="text/javascript"></script>
 		<script src="funciones_de_verificacion.js" type="text/javascript"></script>
+		<script src="controladorTab.js" type="text/javascript"></script>
+		<script src="Controlador.js" type="text/javascript"></script>
+
+
+		<!-- Importando archivos de estilos -->
 		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link rel="stylesheet" type="text/css" href="tabstyle.css">
 	</head>
-	<body bgcolor = "#ffffcc" text = "#000000">
+	<body>
 		<div id="Principal">		
 			<div id="Integrantes">
 				<h2 id="lblCurso">Aseguramiento de la Calidad</h2>
 				<h2 id="lblProf">Prof: Ignacio Trejos Zelaya</h2>
-				<h2 id="lblIntegrantes" onclick="Prueba();">Estudiantes:</h2>
+				<h2 id="lblIntegrantes">Estudiantes:</h2>
 				<ul id="Estudiantes">
 					<li id="LblFernando">Fernando Mata Orozco</li>
 					<li id="LblMinor">Minor Pizarro Morales</li>
 				</ul>			
 			</div>
 			<div id="Calendario" align="center">
-				<h2>Mes Actual</h2>
-				<table id"TablaCalendario">
+				<h2 id="lblMesActual">Mes Actual</h2>
+				<h3 id="lblFechaSeleccionada">Fecha Seleccionada</h3>
+				<table id="TablaCalendario">
 					<tr id="dias">
 						<th>Domingo</th>
 						<th>Lunes</th>
@@ -33,55 +43,249 @@
 						<th>Sabado</th>
 					</tr>
 					<tr id="linea0">
-						<th>Domingo</th>
-						<th>Lunes</th>
-						<th>Martes</th>
-						<th>Miercoles</th>
-						<th>Jueves</th>
-						<th>Viernes</th>
-						<th>Sabado</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
 					</tr>
 					<tr id="linea1">
-						<th>Domingo</th>
-						<th>Lunes</th>
-						<th>Martes</th>
-						<th>Miercoles</th>
-						<th>Jueves</th>
-						<th>Viernes</th>
-						<th>Sabado</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
 					</tr>
 					<tr id="linea2">
-						<th>Domingo</th>
-						<th>Lunes</th>
-						<th>Martes</th>
-						<th>Miercoles</th>
-						<th>Jueves</th>
-						<th>Viernes</th>
-						<th>Sabado</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
 					</tr>
 					<tr id="linea3">
-						<th>Domingo</th>
-						<th>Lunes</th>
-						<th>Martes</th>
-						<th>Miercoles</th>
-						<th>Jueves</th>
-						<th>Viernes</th>
-						<th>Sabado</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
 					</tr>
 					<tr id="linea4">
-						<th>Domingo</th>
-						<th>Lunes</th>
-						<th>Martes</th>
-						<th>Miercoles</th>
-						<th>Jueves</th>
-						<th>Viernes</th>
-						<th>Sabado</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
+						<th>--</th>
 					</tr>					
 				</table>
 			</div>					
 		</div>
 		<div id="Funcionalidad">
 			<h2>Funcionalidades</h2>
+<<<<<<< HEAD
+=======
+			<div class="acc-container">
+				<div class="acc-btn"><h1 class="selected">Requerimiento R0</h1></div>
+				<div class="acc-content open">
+				  <div class="acc-content-inner">			
+				  <!-- Componentes del Requerimiento R0				     -->
+				  	<Input id="TxtYearR0" placeholder="Introduzca el Año"/>
+				  	<select id="TxtMonthR0">
+				  		<option value="0">Enero</option>
+				  		<option value="1">Febrero</option>
+				  		<option value="2">Marzo</option>
+				  		<option value="3">Abril</option>
+				  		<option value="4">Mayo</option>
+				  		<option value="5">Junio</option>
+				  		<option value="6">Julio</option>
+				  		<option value="7">Agosto</option>
+				  		<option value="8">Septiembre</option>
+				  		<option value="9">Octubre</option>
+				  		<option value="10">Noviembre</option>
+				  		<option value="11">Diciembre</option>				  		
+				  	</select>
+				  	<select id="TxtDayR0">
+				  		<option value="1">1</option>
+				  		<option value="2">2</option>
+				  		<option value="3">3</option>
+				  		<option value="4">4</option>
+				  		<option value="5">5</option>
+				  		<option value="6">6</option>
+				  		<option value="7">7</option>
+				  		<option value="8">8</option>
+				  		<option value="9">9</option>
+				  		<option value="10">10</option>
+				  		<option value="11">11</option>
+				  		<option value="12">12</option>
+				  		<option value="13">13</option>
+				  		<option value="14">14</option>
+				  		<option value="15">15</option>
+				  		<option value="16">16</option>
+				  		<option value="17">17</option>
+				  		<option value="18">18</option>
+				  		<option value="19">19</option>
+				  		<option value="20">20</option>
+				  		<option value="21">21</option>
+				  		<option value="22">22</option>
+				  		<option value="23">23</option>
+				  		<option value="24">24</option>
+				  		<option value="25">25</option>
+				  		<option value="26">26</option>
+				  		<option value="27">27</option>
+				  		<option value="28">28</option>
+				  		<option value="29">29</option>
+				  		<option value="30">30</option>
+				  		<option value="31">31</option>
+				  	</select>
+				  	<Button id="BtnR0" onclick="CalcularR0();">Ir al Día Seleccionado</Button>
+				  </div>
+				</div>
+
+				<div class="acc-btn"><h1>Requerimiento R1</h1></div>
+				<div class="acc-content">
+				  <div class="acc-content-inner">
+				  <!-- Componentes del Requerimiento R1				     -->
+				  <Input id="TxtYearR1" placeholder="Introduzca el Año"/>
+				  <Button id="BtnR1" onclick="CalcularR1();">Determinar si es Bisiesto</Button>
+				  <h3 class="Resultado" id="ResultadoR1">Mensaje del Resultado de la Función</h3>
+				  </div>
+				</div>
+
+				<div class="acc-btn"><h1>Requerimiento R2</h1></div>
+				<div class="acc-content">
+				  <div class="acc-content-inner">
+				    <!-- Componentes del Requerimiento R2				     -->
+				    <Input id="TxtYearR2" placeholder="Introduzca el Año"/>
+				  	<select id="TxtMonthR2">
+				  		<option value="0">Enero</option>
+				  		<option value="1">Febrero</option>
+				  		<option value="2">Marzo</option>
+				  		<option value="3">Abril</option>
+				  		<option value="4">Mayo</option>
+				  		<option value="5">Junio</option>
+				  		<option value="6">Julio</option>
+				  		<option value="7">Agosto</option>
+				  		<option value="8">Septiembre</option>
+				  		<option value="9">Octubre</option>
+				  		<option value="10">Noviembre</option>
+				  		<option value="11">Diciembre</option>				  		
+				  	</select>
+				  	<select id="TxtDayR2">
+				  		<option value="1">1</option>
+				  		<option value="2">2</option>
+				  		<option value="3">3</option>
+				  		<option value="4">4</option>
+				  		<option value="5">5</option>
+				  		<option value="6">6</option>
+				  		<option value="7">7</option>
+				  		<option value="8">8</option>
+				  		<option value="9">9</option>
+				  		<option value="10">10</option>
+				  		<option value="11">11</option>
+				  		<option value="12">12</option>
+				  		<option value="13">13</option>
+				  		<option value="14">14</option>
+				  		<option value="15">15</option>
+				  		<option value="16">16</option>
+				  		<option value="17">17</option>
+				  		<option value="18">18</option>
+				  		<option value="19">19</option>
+				  		<option value="20">20</option>
+				  		<option value="21">21</option>
+				  		<option value="22">22</option>
+				  		<option value="23">23</option>
+				  		<option value="24">24</option>
+				  		<option value="25">25</option>
+				  		<option value="26">26</option>
+				  		<option value="27">27</option>
+				  		<option value="28">28</option>
+				  		<option value="29">29</option>
+				  		<option value="30">30</option>
+				  		<option value="31">31</option>
+				  	</select>
+				  	<Button id="BtnR2" onclick="CalcularR2();">Validar Fecha</Button>
+				  <h3 class="Resultado" id="ResultadoR2">Mensaje del Resultado de la Función</h3>
+				  </div>
+				</div>
+
+				<div class="acc-btn"><h1>Requerimiento R3</h1></div>
+				<div class="acc-content">
+				  <div class="acc-content-inner">
+				    <!-- Componentes del Requerimiento R3				     -->
+				    <Input id="TxtYearR3" placeholder="Introduzca el Año"/>
+				  	<select id="TxtMonthR3">
+				  		<option value="0">Enero</option>
+				  		<option value="1">Febrero</option>
+				  		<option value="2">Marzo</option>
+				  		<option value="3">Abril</option>
+				  		<option value="4">Mayo</option>
+				  		<option value="5">Junio</option>
+				  		<option value="6">Julio</option>
+				  		<option value="7">Agosto</option>
+				  		<option value="8">Septiembre</option>
+				  		<option value="9">Octubre</option>
+				  		<option value="10">Noviembre</option>
+				  		<option value="11">Diciembre</option>				  		
+				  	</select>
+				  	<select id="TxtDayR3">
+				  		<option value="1">1</option>
+				  		<option value="2">2</option>
+				  		<option value="3">3</option>
+				  		<option value="4">4</option>
+				  		<option value="5">5</option>
+				  		<option value="6">6</option>
+				  		<option value="7">7</option>
+				  		<option value="8">8</option>
+				  		<option value="9">9</option>
+				  		<option value="10">10</option>
+				  		<option value="11">11</option>
+				  		<option value="12">12</option>
+				  		<option value="13">13</option>
+				  		<option value="14">14</option>
+				  		<option value="15">15</option>
+				  		<option value="16">16</option>
+				  		<option value="17">17</option>
+				  		<option value="18">18</option>
+				  		<option value="19">19</option>
+				  		<option value="20">20</option>
+				  		<option value="21">21</option>
+				  		<option value="22">22</option>
+				  		<option value="23">23</option>
+				  		<option value="24">24</option>
+				  		<option value="25">25</option>
+				  		<option value="26">26</option>
+				  		<option value="27">27</option>
+				  		<option value="28">28</option>
+				  		<option value="29">29</option>
+				  		<option value="30">30</option>
+				  		<option value="31">31</option>
+				  	</select>
+				  	<Button id="BtnR3" onclick="CalcularR3();">Calcular Día Siguiente</Button>
+				  <h3 class="Resultado" id="ResultadoR3">Mensaje del Resultado de la Función</h3>
+				  </div>
+				</div>
+
+				<div class="acc-btn"><h1>Requerimiento R4</h1></div>
+				<div class="acc-content">
+				  <div class="acc-content-inner">
+				    <!-- Componentes del Requerimiento R4				     -->
+				    <Input id="TxtYearR4" placeholder="Introduzca el Año"/>
+				  <Button id="BtnR1" onclick="CalcularR4();">Determinar el 1 de Enero</Button>
+				  <h3 class="Resultado" id="ResultadoR4">Mensaje del Resultado de la Función</h3>
+				  </div>
+				</div>
+			</div>
+>>>>>>> origin/master
 		</div>
 	</body>
 </html>

@@ -35,10 +35,18 @@ table,th,td{
 
 #TablaCalendario{
 	text-align: center;
-	margin: 0 auto;
-	margin-left: 10px;	
+	margin: 0 auto;	
 }
 
 table tr th{
 	width: 80px;
+}
+
+.Resultado{
+	font:400 16px/24px 'Lato', sans-serif;
+  	color:#798795;
+}
+
+.Seleccionado{
+	border: 3px solid #1ABC9C;
 }

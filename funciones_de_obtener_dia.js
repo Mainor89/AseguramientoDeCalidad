@@ -14,10 +14,6 @@ var MonthDays = [
 	{id:11, days:31}
 ];
 
-function Prueba(){	
-	encontrar_dia_siguiente("2015","3","15");
-}
-
 //Dado un mes y un año retorna la fecha de inicio de ese mes
 function CalcularPrimerDiaMes(pDay, pMonth, pYear){
 	//Calcula el mes, orden de meses Marzo=1, Abril=2, .., Enero =11, Febrero =12
@@ -27,14 +23,14 @@ function CalcularPrimerDiaMes(pDay, pMonth, pYear){
 	}	
 	//valor del día que queremos buscar
 	var day = pDay;
-	//primeros dos dígitos del año
-	var century = Math.floor(pYear / 100);
 	//Antes los meses iban de marzo a Febrero, por lo q si se busca el 1 de Enero del 2015
 	//se debera buscar por el 1 de enero del 2014 por eso la sustracción siguiente
 	var year = pYear % 100;
-	if(month === 11 || month === 12){
+	if(month == 11 || month == 12){
 		year = (pYear - 1) % 100;
 	}
+	//primeros dos dígitos del año
+	var century = Math.floor(pYear / 100);	
 	//Calculos de la formula para simplificarla
 	var firstCalculation = Math.floor((2.6 * month) - 0.2);
 	var secondCalculation = Math.floor(year / 4);
@@ -56,19 +52,19 @@ function CalcularPrimerDia(pYear){
 
 //Funcion que dado el mes y año creará todas las fechas de dicho mes
 function CalcularMes(pMonth, pYear){
-	var monthResult = [];
+	var monthResult = [];	
 	var monthStartDay = CalcularPrimerDiaMes(1, pMonth, pYear);
 	var monthId = pMonth - 1;
-	var monthSize = MonthDays[monthId].days;
+	var monthSize = MonthDays[monthId].days;	
 	if(monthId === 1){
 		if(comprobar_bisiesto(pYear)){
 			monthSize = 29;
 		}
 	}
-	monthResult.push({day:1, name:DaysOfTheWeek[monthStartDay].name});
+	monthResult.push({day:1, name:DaysOfTheWeek[monthStartDay].name, pos:DaysOfTheWeek[monthStartDay].id});
 	for (var day = 2; day <= monthSize; day++) {
 		monthStartDay++;
-		monthResult.push({day:day, name:DaysOfTheWeek[monthStartDay%7].name});
+		monthResult.push({day:day, name:DaysOfTheWeek[monthStartDay%7].name, pos:DaysOfTheWeek[monthStartDay%7].id});
 	};
 	return monthResult;
 }
