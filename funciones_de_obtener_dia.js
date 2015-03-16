@@ -14,10 +14,6 @@ var MonthDays = [
 	{id:11, days:31}
 ];
 
-function Prueba(){	
-	encontrar_dia_siguiente("2015","3","15");
-}
-
 //Dado un mes y un año retorna la fecha de inicio de ese mes
 function CalcularPrimerDiaMes(pDay, pMonth, pYear){
 	//Calcula el mes, orden de meses Marzo=1, Abril=2, .., Enero =11, Febrero =12

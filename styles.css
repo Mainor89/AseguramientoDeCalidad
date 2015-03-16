@@ -42,3 +42,8 @@ table,th,td{
 table tr th{
 	width: 80px;
 }
+
+.Resultado{
+	font:400 16px/24px 'Lato', sans-serif;
+  	color:#798795;
+}

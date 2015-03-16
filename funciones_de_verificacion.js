@@ -13,7 +13,7 @@ function Es_numero(pYear){
 			
 			/*Este if revisa si el caracter se encuentra dentro del array de elementos validos, retorna falso si el caracter no esta en el array*/
 		    if(arreglo_caracteres_validos.indexOf(caracter,0) == -1){
-				alert("no es entero");
+				//alert("no es entero");
 				return false;
 			}			
 			
@@ -36,11 +36,11 @@ contrario*/
 function string_vacio(cadena){
 	//se revisa si el largo del string si es 0 el string es vacio
 	if(cadena.length == 0){
-		alert("string vacio");
+		//alert("string vacio");
 		return true;
 	}
 	else{
-		alert("string no vacio");
+		//alert("string no vacio");
 		return false;
 	}
 }	
@@ -68,15 +68,15 @@ function validar_fecha(pYear,mes,dia){
 		      cantidad_dias_del_mes[1]=29;    //En caso que el año sea bisiesto se modificara la posicion 1 del array correspondiente a febrero		   
 	      }
 	
-          var cantidad_dias_del_mes_seleccionado = cantidad_dias_del_mes[mes-1];     //obtiene la posicion del array correspondiente al mes seleccionado
+          var cantidad_dias_del_mes_seleccionado = cantidad_dias_del_mes[mes];     //obtiene la posicion del array correspondiente al mes seleccionado
 		  
 		  //analiza si el dia seleccionado se encuentra entre la cantidad de dias del mes escogido, retorna true en caso que si este en el rango de dias posible y false en caso contrario
 		  if(valor_entero_dia <= cantidad_dias_del_mes_seleccionado){
-			  alert("cantidad de dias valido");
+			  //alert("cantidad de dias valido");
 			  return true;
 		  }
 		  else{
-			  alert("fecha invalida"); //si el dia escogido no se encuentra en el rango de dias posibles, se considera que la fecha es invalida
+			  //alert("fecha invalida"); //si el dia escogido no se encuentra en el rango de dias posibles, se considera que la fecha es invalida
 			  return false;
 		  }
 			
