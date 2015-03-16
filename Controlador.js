@@ -47,7 +47,7 @@ function CalcularR3(){
 	day = day.options[day.selectedIndex].value;		
 	var result = encontrar_dia_siguiente(year,parseInt(month.toString()),day.toString());
 	var element = dom.getElementById("ResultadoR3");
-	element.innerHTML = result;
+	element.innerHTML = "El día siguiente es: " + result;
 }
 
 //Funcion que comunica la pagina principal con el metodo de Calcular Primer Dia en Funciones de obtener dia.js

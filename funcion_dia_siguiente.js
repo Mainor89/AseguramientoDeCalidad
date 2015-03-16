@@ -67,7 +67,7 @@ function encontrar_dia_siguiente(pYear,mes,dia){
 	   //se verifica si el dia y mes escogidos corresponden al fin de año
 	   if(last_day_of_the_year(mes,dia)){
 	   var val_entero_year_nuevo = parseInt(pYear)+1;   //en caso de que la fecha sea fin de año se modifica el valor del año
-	   resultado = "El día siguiente es: 1 de Enero del "+val_entero_year_nuevo.toString();
+	   resultado = "1 de Enero del "+val_entero_year_nuevo.toString();
 	   return resultado; //se muestra el mensaje con la fecha del año nuevo
 
 	   }
@@ -78,7 +78,7 @@ function encontrar_dia_siguiente(pYear,mes,dia){
 		    //este if evalua si la fecha escogida corresponde a fin de mes
 	        if(funcion_fin_de_mes(pYear,mes,dia)){
 	              
-	              resultado = "El día siguiente es: 1 de "+MonthNames[val_entero_mes_nuevo + 1].name+" del "+pYear;   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
+	              resultado = "1 de "+MonthNames[val_entero_mes_nuevo + 1].name+" del "+pYear;   //  se muestra el mensaje con la fecha de inicio para el mes siguiente         
 	              return resultado;
 	       }
 		   
@@ -86,7 +86,7 @@ function encontrar_dia_siguiente(pYear,mes,dia){
 	       else{
 			    
 	            var val_entero_dia_nuevo = parseInt(dia)+1; //se modifica el dia solamente            
-	            resultado = "El día siguiente es: "+ val_entero_dia_nuevo.toString()+" de "+MonthNames[val_entero_mes_nuevo].name+" del "+pYear;            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
+	            resultado = ""+ val_entero_dia_nuevo.toString()+" de "+MonthNames[val_entero_mes_nuevo].name+" del "+pYear;            //se muestra el mensaje con la fecha del dia siguiente al dia escogido  
 	            return resultado;
 
 	       }
