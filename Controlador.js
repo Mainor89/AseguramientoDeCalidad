@@ -17,6 +17,8 @@ var MonthDays = [
 	{id:11, days:31}
 ];
 
+//variables para mantener la fecha actual
+var selectedYear, selectedMonth, selectedDay;
 
 //Valida si es un numero
 function EsNumero(pNumero) {
@@ -56,7 +58,7 @@ function CalcularR0(){
 				if(index == 0){
 					calendarString += "<tr>";				
 					for(var i=0, index0Pos = monthResult[index].pos; i < index0Pos; i++){
-						calendarString += "<th>--</th>";
+						calendarString += "<td>--</td>";
 					}
 				}
 				if(monthResult[index].pos==0){
@@ -64,41 +66,45 @@ function CalcularR0(){
 						calendarString += "<tr>";
 					}
 					if(monthResult[index].day == day){
-						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
 					}else{
-						calendarString += "<th>"+ monthResult[index].day +"</th>";
+						calendarString += "<td>"+ monthResult[index].day +"</td>";
 					}				
 				}			
 				else if(monthResult[index].pos==6){
 					if(monthResult[index].day == day){
-						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
 					}else{
-						calendarString += "<th>"+ monthResult[index].day +"</th>";
+						calendarString += "<td>"+ monthResult[index].day +"</td>";
 					}
 					calendarString += "</tr>";				
 				}
 				else if(index == (monthResultSize - 1)){
 					if(monthResult[index].day == day){
-						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
 					}else{
-						calendarString += "<th>"+ monthResult[index].day +"</th>";
+						calendarString += "<td>"+ monthResult[index].day +"</td>";
 					}
 					for(var i=monthResult[index].pos + 1; i < 7; i++){
-						calendarString += "<th>--</th>";
+						calendarString += "<td>--</td>";
 					}
 					calendarString += "</tr>";
 				}
 				else{
 					if(monthResult[index].day == day){
-						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
 					}else{
-						calendarString += "<th>"+ monthResult[index].day +"</th>";
+						calendarString += "<td>"+ monthResult[index].day +"</td>";
 					}
 				}
 			}
 			element.innerHTML = calendarDays + calendarString;
 			elementMesActual.innerHTML = MonthNames[month].name;
-			elementFechaSeleccionada.innerHTML = year + " / " + MonthNames[month].name + " / " + (day);
+			elementFechaSeleccionada.innerHTML = year + " / " + MonthNames[month].name + " / " + day;
+			selectedYear = year;
+			selectedMonth = MonthNames[month].name;
+			selectedDay = day;
+			AgregarEventoTabla();
 		}
 		else{
 			alert("El día introducido es mayor a la cantidad de días para ese mes");					
@@ -165,3 +171,20 @@ function CalcularR4(){
 		element.innerHTML = "El año indtroducido no es un entero positivo mayor o igual a 1582";		
 	}
 }
+
+//Permite cargar funciones a los tags o elementos seleccionados desd jquery
+ function AgregarEventoTabla(){	
+	//Funcion de Click para cada td 	
+ 	$('#TablaCalendario td').click(function(){		
+		var $this = $(this); // this is just for performance
+		$('td.Seleccionado').attr('id', 'normal');
+		$('td.Seleccionado').removeClass('Seleccionado');		
+		$this.addClass('Seleccionado');
+		$this.attr('id', 'actual');		
+		var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
+		var diaSeleccionado = dom.getElementById("actual");		
+		elementFechaSeleccionada.innerHTML = selectedYear + " / " + selectedMonth + " / " + diaSeleccionado.innerHTML;
+		selectedDay = diaSeleccionado.innerHTML;
+	});
+}
+
