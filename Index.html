@@ -30,9 +30,9 @@
 				</ul>			
 			</div>
 			<div id="Calendario" align="center">
-				<h2>Mes Actual</h2>
-				<h3>Fecha Seleccionada</h3>
-				<table id"TablaCalendario">
+				<h2 id="lblMesActual">Mes Actual</h2>
+				<h3 id="lblFechaSeleccionada">Fecha Seleccionada</h3>
+				<table id="TablaCalendario">
 					<tr id="dias">
 						<th>Domingo</th>
 						<th>Lunes</th>
@@ -145,7 +145,7 @@
 				  		<option value="30">30</option>
 				  		<option value="31">31</option>
 				  	</select>
-				  	<Button id="BtnR0">Ir al Día Seleccionado</Button>
+				  	<Button id="BtnR0" onclick="CalcularR0();">Ir al Día Seleccionado</Button>
 				  </div>
 				</div>
 

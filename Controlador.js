@@ -1,8 +1,111 @@
 var dom = document;
+var calendarDays = "<tr id='dias'><th>Domingo</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th><th>Sábado</th></tr>";
+
+//Lista de los meses con los dias que tienen, febrero no esta contemplado como bisiesto
+var MonthDays = [
+	{id:0, days:31},
+	{id:1, days:28},
+	{id:2, days:31},
+	{id:3, days:30},
+	{id:4, days:31},
+	{id:5, days:30},
+	{id:6, days:31},
+	{id:7, days:31},
+	{id:8, days:30},
+	{id:9, days:31},
+	{id:10, days:30},
+	{id:11, days:31}
+];
+
 
 //Valida si es un numero
 function EsNumero(pNumero) {
   return !isNaN(parseFloat(pNumero)) && isFinite(pNumero) && parseInt(pNumero)>=1582;
+}
+
+//Valida si el dia es un numero correcto
+function ValidarDia(pDay, pMonth ,pYear){
+	var monthSize = MonthDays[pMonth].days;	
+	if(pMonth == 1){
+		if(comprobar_bisiesto(pYear)){
+			monthSize = 29;
+		}
+	}
+	if(pDay <= monthSize){
+		return true;
+	}
+	return false;
+}
+
+//Funcion que comunica la pagina principal con el metodo de crear calendario para mostrarlo
+function CalcularR0(){
+	var year = dom.getElementById('TxtYearR0').value;
+	var month = dom.getElementById('TxtMonthR0');
+	month = month.options[month.selectedIndex].value
+	var day = dom.getElementById('TxtDayR0');
+	day = day.options[day.selectedIndex].value
+	if(EsNumero(year)){
+		year = parseInt(year);
+		if(ValidarDia(day,month,year)){		
+			var element = dom.getElementById("TablaCalendario");
+			var elementMesActual = dom.getElementById("lblMesActual");
+			var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
+			var monthResult = CalcularMes(parseInt(month) + 1, year);		
+			var calendarString = "";
+			for(var index=0, monthResultSize=monthResult.length; index < monthResultSize; index++){
+				if(index == 0){
+					calendarString += "<tr>";				
+					for(var i=0, index0Pos = monthResult[index].pos; i < index0Pos; i++){
+						calendarString += "<th>--</th>";
+					}
+				}
+				if(monthResult[index].pos==0){
+					if(index != 0){
+						calendarString += "<tr>";
+					}
+					if(monthResult[index].day == day){
+						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+					}else{
+						calendarString += "<th>"+ monthResult[index].day +"</th>";
+					}				
+				}			
+				else if(monthResult[index].pos==6){
+					if(monthResult[index].day == day){
+						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+					}else{
+						calendarString += "<th>"+ monthResult[index].day +"</th>";
+					}
+					calendarString += "</tr>";				
+				}
+				else if(index == (monthResultSize - 1)){
+					if(monthResult[index].day == day){
+						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+					}else{
+						calendarString += "<th>"+ monthResult[index].day +"</th>";
+					}
+					for(var i=monthResult[index].pos + 1; i < 7; i++){
+						calendarString += "<th>--</th>";
+					}
+					calendarString += "</tr>";
+				}
+				else{
+					if(monthResult[index].day == day){
+						calendarString += "<th class='Seleccionado'>"+ monthResult[index].day +"</th>";
+					}else{
+						calendarString += "<th>"+ monthResult[index].day +"</th>";
+					}
+				}
+			}
+			element.innerHTML = calendarDays + calendarString;
+			elementMesActual.innerHTML = MonthNames[month].name;
+			elementFechaSeleccionada.innerHTML = year + " / " + MonthNames[month].name + " / " + (day);
+		}
+		else{
+			alert("El día introducido es mayor a la cantidad de días para ese mes");					
+		}
+	}else{		
+		alert("El año introducido no es un entero positivo mayor o igual a 1582");		
+	}
 }
 
 //Funcion que comunica la pagina principal con el metodo de verificar si un año es bisiesto
