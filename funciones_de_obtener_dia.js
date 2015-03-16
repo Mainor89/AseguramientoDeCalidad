@@ -14,17 +14,7 @@ var MonthDays = [
 	{id:11, days:31}
 ];
 
-function Prueba(){
-	// alert(CalcularPrimerDia(2015));
-	// var monthDates = CalcularMes(2,2016);
-	// for(var index = 0, size = monthDates.length; index < size; index++){
-	// 	console.log(monthDates[index].day + " " + monthDates[index].name);
-	// }
-
-	// var monthDates = CalcularMes(2,2018);
-	// for(var index = 0, size = monthDates.length; index < size; index++){
-	// 	console.log(monthDates[index].day + " " + monthDates[index].name);
-	// }	
+function Prueba(){	
 	encontrar_dia_siguiente("2015","3","15");
 }
 

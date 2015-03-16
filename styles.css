@@ -1,0 +1,44 @@
+html, body{
+	height: 100%;
+	width: 100%;
+}
+#Principal{		
+	width: 100%;
+	overflow: hidden;		
+}
+#Integrantes{
+	float:left;
+	text-align: justify;
+	width: 40%;	
+	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+#Calendario{
+	float:left;
+	text-align: center;	
+	width: 59%;
+	margin-bottom: 20px;
+	margin-top: 10px;		
+}
+
+#Funcionalidad{	
+	text-align: center;	
+	width: 100%;		
+}
+
+table,th,td{
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+#TablaCalendario{
+	text-align: center;
+	margin: 0 auto;
+	margin-left: 10px;	
+}
+
+table tr th{
+	width: 80px;
+}
