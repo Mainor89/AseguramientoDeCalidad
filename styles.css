@@ -1,11 +1,17 @@
 html, body{
 	height: 100%;
 	width: 100%;
-}
+	
+
 #Principal{		
 	width: 100%;
-	overflow: hidden;		
+	overflow: hidden;	
+    background-color: #5F9EA0; //color del fondo parte superior
+
 }
+
+}
+
 #Integrantes{
 	float:left;
 	text-align: justify;
@@ -20,33 +26,239 @@ html, body{
 	text-align: center;	
 	width: 59%;
 	margin-bottom: 20px;
-	margin-top: 10px;		
+	margin-top: 10px;
+    	
 }
 
 #Funcionalidad{	
 	text-align: center;	
-	width: 100%;		
+	width: 100%;	
+background-color: #5F9EA0; //color del fondo parte inferior
+
 }
 
 table,th,td{
 	border: 1px solid black;
 	margin: 0 auto;
+	padding: 15px; //sirve para hacerle aumentar el marco al calendario
+	
 }
 
 #TablaCalendario{
 	text-align: center;
 	margin: 0 auto;	
+	background-color: #5F9EA0; //color del marco calendario
 }
 
 table tr td{
 	width: 80px;
 }
 
+
+
+#BtnR0{
+
+/*codigo para crear patrones de color en botones, el primer parametro es para el color de la parte superior del boton y el segundo para la parte inferior*/
+background:-moz-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-ms-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-o-linear-gradient(#FF6347 0%,#48D1CC 100%); 
+background:-webkit-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:linear-gradient(#FF6347 0%,#48D1CC 100%); 
+border-radius:5px; /*pa dar curvatura a las esquinas del boton*/
+text-align:center; /*para alinear el texto al centro del boton*/
+color:#fff; /*color blanco de la fuente de texto*/
+  width:90px; /*ancho del boton*/
+}
+
+#BtnR1{
+
+/*codigo para crear patrones de color en botones, el primer parametro es para el color de la parte superior del boton y el segundo para la parte inferior*/
+background:-moz-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-ms-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-o-linear-gradient(#FF6347 0%,#48D1CC 100%); 
+background:-webkit-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:linear-gradient(#FF6347 0%,#48D1CC 100%); 
+border-radius:5px; /*pa dar curvatura a las esquinas del boton*/
+text-align:center; /*para alinear el texto al centro del boton*/
+color:#fff; /*color blanco de la fuente de texto*/
+  width:120px; /*ancho del boton*/
+}
+
+
+#BtnR2{
+
+/*codigo para crear patrones de color en botones, el primer parametro es para el color de la parte superior del boton y el segundo para la parte inferior*/
+background:-moz-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-ms-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-o-linear-gradient(#FF6347 0%,#48D1CC 100%); 
+background:-webkit-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:linear-gradient(#FF6347 0%,#48D1CC 100%); 
+border-radius:5px; /*pa dar curvatura a las esquinas del boton*/
+text-align:center; /*para alinear el texto al centro del boton*/
+color:#fff; /*color blanco de la fuente de texto*/
+  width:140px; /*ancho del boton*/
+}
+
+
+#BtnR3{
+
+/*codigo para crear patrones de color en botones, el primer parametro es para el color de la parte superior del boton y el segundo para la parte inferior*/
+background:-moz-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-ms-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-o-linear-gradient(#FF6347 0%,#48D1CC 100%); 
+background:-webkit-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:linear-gradient(#FF6347 0%,#48D1CC 100%); 
+border-radius:5px; /*pa dar curvatura a las esquinas del boton*/
+text-align:center; /*para alinear el texto al centro del boton*/
+color:#fff; /*color blanco de la fuente de texto*/
+  width:120px; /*ancho del boton*/
+}
+
+
+#BtnR4{
+
+/*codigo para crear patrones de color en botones, el primer parametro es para el color de la parte superior del boton y el segundo para la parte inferior*/
+background:-moz-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-ms-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:-o-linear-gradient(#FF6347 0%,#48D1CC 100%); 
+background:-webkit-linear-gradient(#FF6347 0%,#48D1CC 100%);
+background:linear-gradient(#FF6347 0%,#48D1CC 100%); 
+border-radius:5px; /*pa dar curvatura a las esquinas del boton*/
+text-align:center; /*para alinear el texto al centro del boton*/
+color:#fff; /*color blanco de la fuente de texto*/
+  width:180px; /*ancho del boton*/
+  }
+
+  
+  
+  
+ #TxtYearR0{
+ 
+    color: #000000;
+    width: 120px;
+    border-radius: 20px;
+    transition: 500ms all ease;
+}
+
+#TxtYearR0:hover {
+    width: 140px;
+}  
+
+
+ #TxtYearR1{
+ 
+    color: #000000;
+    width: 120px;
+    border-radius: 20px;
+    transition: 500ms all ease;
+}
+
+#TxtYearR1:hover {
+    width: 140px;
+}  
+
+
+ #TxtYearR2{
+ 
+    color: #000000;
+    width: 120px;
+    border-radius: 20px;
+    transition: 500ms all ease;
+}
+
+#TxtYearR2:hover {
+    width: 140px;
+}  
+
+
+ #TxtYearR3{
+ 
+    color: #000000;
+    width: 120px;
+    border-radius: 20px;
+    transition: 500ms all ease;
+}
+
+#TxtYearR3:hover {
+    width: 140px;
+}  
+
+
+ #TxtYearR4{
+ 
+    color: #000000;
+    width: 120px;
+    border-radius: 20px;
+    transition: 500ms all ease;
+}
+
+#TxtYearR4:hover {
+    width: 140px;
+}  
+  
+  
+  
+ #TxtMonthR0 {
+   color: #000000;
+   background-color: #fff;
+   height : 21px;
+   border-radius: 20px;
+   width : 100px;
+} 
+ 
+ 
+ #TxtMonthR2 {
+   color: #000000;
+   background-color: #fff;
+   height : 21px;
+   border-radius: 20px;
+   width : 100px;
+}  
+
+ #TxtMonthR3 {
+   color: #000000;
+   background-color: #fff;
+   height : 21px;
+   border-radius: 20px;
+   width : 100px;
+} 
+
+
+#TxtDayR0{
+         color: #000000;
+         background-color: #fff;	 
+         height : 19;
+         width : 41;
+		 border-radius: 20px;
+}
+ 
+#TxtDayR2{
+         color: #000000;
+         background-color: #fff;	 
+         height : 19;
+         width : 41;
+		 border-radius: 20px;
+}  
+
+#TxtDayR3{
+         color: #000000;
+         background-color: #fff;	 
+         height : 19;
+         width : 41;
+		 border-radius: 20px;
+}
+  
 .Resultado{
 	font:400 16px/24px 'Lato', sans-serif;
-  	color:#798795;
+  	color:white;
 }
 
 .Seleccionado{
 	border: 3px solid #1ABC9C;
 }
+
+
+
+
+
+
