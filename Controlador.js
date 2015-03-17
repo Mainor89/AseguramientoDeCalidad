@@ -18,7 +18,7 @@ var MonthDays = [
 ];
 
 //variables para mantener la fecha actual
-var selectedYear, selectedMonth, selectedDay;
+var selectedYear, selectedMonth, selectedDay, maximumCellId;
 
 //Valida si es un numero
 function EsNumero(pNumero) {
@@ -54,50 +54,64 @@ function CalcularR0(){
 			var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
 			var monthResult = CalcularMes(parseInt(month) + 1, year);		
 			var calendarString = "";
+			var rowId = 0;
+			var cellId = 0;
 			for(var index=0, monthResultSize=monthResult.length; index < monthResultSize; index++){
 				if(index == 0){
-					calendarString += "<tr>";				
+					calendarString += "<tr id=linea"+ rowId +">";				
 					for(var i=0, index0Pos = monthResult[index].pos; i < index0Pos; i++){
-						calendarString += "<td>--</td>";
+						calendarString += "<td id=celda"+cellId+">--</td>";
+						cellId++;
 					}
 				}
 				if(monthResult[index].pos==0){
 					if(index != 0){
-						calendarString += "<tr>";
+						calendarString += "<tr id=linea"+ rowId +">";
 					}
 					if(monthResult[index].day == day){
-						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						cellId++;
 					}else{
-						calendarString += "<td>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+">"+ monthResult[index].day +"</td>";
+						cellId++;
 					}				
 				}			
 				else if(monthResult[index].pos==6){
 					if(monthResult[index].day == day){
-						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						cellId++;
 					}else{
-						calendarString += "<td>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+">"+ monthResult[index].day +"</td>";
+						cellId++;
 					}
-					calendarString += "</tr>";				
+					calendarString += "</tr>";
+					rowId++;
 				}
 				else if(index == (monthResultSize - 1)){
 					if(monthResult[index].day == day){
-						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						cellId++;
 					}else{
-						calendarString += "<td>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+">"+ monthResult[index].day +"</td>";
+						cellId++;
 					}
 					for(var i=monthResult[index].pos + 1; i < 7; i++){
-						calendarString += "<td>--</td>";
+						calendarString += "<td id=celda"+cellId+">--</td>";
+						cellId++;
 					}
 					calendarString += "</tr>";
 				}
 				else{
 					if(monthResult[index].day == day){
-						calendarString += "<td class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
+						cellId++;
 					}else{
-						calendarString += "<td>"+ monthResult[index].day +"</td>";
+						calendarString += "<td id=celda"+cellId+">"+ monthResult[index].day +"</td>";
+						cellId++;
 					}
 				}
 			}
+			maximumCellId = cellId;
 			element.innerHTML = calendarDays + calendarString;
 			elementMesActual.innerHTML = MonthNames[month].name;
 			elementFechaSeleccionada.innerHTML = year + " / " + MonthNames[month].name + " / " + day;
@@ -105,6 +119,7 @@ function CalcularR0(){
 			selectedMonth = MonthNames[month].name;
 			selectedDay = day;
 			AgregarEventoTabla();
+			RePintarCalendario();
 		}
 		else{
 			alert("El día introducido es mayor a la cantidad de días para ese mes");					
@@ -112,6 +127,21 @@ function CalcularR0(){
 	}else{		
 		alert("El año introducido no es un entero positivo mayor o igual a 1582");		
 	}
+}
+
+//Se encarga de repintar el calendario despues de haberlo creado dinamicamente
+function RePintarCalendario(){
+	for(var cellIndex=0; cellIndex < maximumCellId; cellIndex++){
+		var id = "#celda" + cellIndex;		
+		var celda = $(id);
+		if(cellIndex % 2 == 0){
+			celda.attr("bgColor","#597CA0");
+			celda.addClass("FontOscuro");
+		}else{
+			celda.attr("bgColor","#ADD8E6");
+			celda.addClass("FontClaro");
+		}		
+	}	
 }
 
 //Funcion que comunica la pagina principal con el metodo de verificar si un año es bisiesto

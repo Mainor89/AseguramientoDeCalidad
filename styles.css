@@ -50,11 +50,21 @@ table,th,td{
 	background-color: #5F9EA0; //color del marco calendario
 }
 
-table tr td{
-	width: 80px;
+#TablaCalendario th{
+	background-color: #99FFCC;	
 }
 
+table tr td{
+	width: 80px;	
+}
 
+.FontOscuro{
+	color: #C1E7F4;
+}
+
+.FontClaro{
+	color: #111628;
+}
 
 #BtnR0{
 
@@ -254,7 +264,7 @@ color:#fff; /*color blanco de la fuente de texto*/
 }
 
 .Seleccionado{
-	border: 3px solid #1ABC9C;
+	border: 3px solid red;
 }
 
 
