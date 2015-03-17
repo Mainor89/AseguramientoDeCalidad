@@ -111,6 +111,10 @@ function CalcularR0(){
 					}
 				}
 			}
+			while(cellId%7!=0){
+				calendarString += "<td id=celda"+cellId+">--</td>";
+				cellId++;
+			}
 			maximumCellId = cellId;
 			element.innerHTML = calendarDays + calendarString;
 			elementMesActual.innerHTML = MonthNames[month].name;
