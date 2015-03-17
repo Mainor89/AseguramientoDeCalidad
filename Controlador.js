@@ -41,30 +41,31 @@ function ValidarDia(pDay, pMonth ,pYear){
 
 //Funcion que comunica la pagina principal con el metodo de crear calendario para mostrarlo
 function CalcularR0(){
+	//Se obtienen los valores que serviran de parametro para la funcion
 	var year = dom.getElementById('TxtYearR0').value;
 	var month = dom.getElementById('TxtMonthR0');
 	month = month.options[month.selectedIndex].value
 	var day = dom.getElementById('TxtDayR0');
 	day = day.options[day.selectedIndex].value
-	if(EsNumero(year)){
+	if(EsNumero(year)){//Se valida el parametro año
 		year = parseInt(year);
-		if(ValidarDia(day,month,year)){		
+		if(ValidarDia(day,month,year)){	//Se valida el día que se introdujo
 			var element = dom.getElementById("TablaCalendario");
 			var elementMesActual = dom.getElementById("lblMesActual");
 			var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
-			var monthResult = CalcularMes(parseInt(month) + 1, year);		
+			var monthResult = CalcularMes(parseInt(month) + 1, year);//Se obtiene un arreglo con el valor de cada día y su respectivo día de la semana		
 			var calendarString = "";
 			var rowId = 0;
 			var cellId = 0;
 			for(var index=0, monthResultSize=monthResult.length; index < monthResultSize; index++){
-				if(index == 0){
+				if(index == 0){//Se crea la primera fila en caso de que no se empiece el mes en Domingo q es el primer dia
 					calendarString += "<tr id=linea"+ rowId +">";				
 					for(var i=0, index0Pos = monthResult[index].pos; i < index0Pos; i++){
 						calendarString += "<td id=celda"+cellId+">--</td>";
 						cellId++;
 					}
 				}
-				if(monthResult[index].pos==0){
+				if(monthResult[index].pos==0){//Si el dia es Domingo se crea la linea y se le asigna el campo seleccionado
 					if(index != 0){
 						calendarString += "<tr id=linea"+ rowId +">";
 					}
@@ -76,7 +77,7 @@ function CalcularR0(){
 						cellId++;
 					}				
 				}			
-				else if(monthResult[index].pos==6){
+				else if(monthResult[index].pos==6){//Si el dia es Sabado se crea la linea y se le asigna el campo seleccionado
 					if(monthResult[index].day == day){
 						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
 						cellId++;
@@ -87,7 +88,7 @@ function CalcularR0(){
 					calendarString += "</tr>";
 					rowId++;
 				}
-				else if(index == (monthResultSize - 1)){
+				else if(index == (monthResultSize - 1)){//Verifica el ultimo día del mes y valida si es el campo seleccionado
 					if(monthResult[index].day == day){
 						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
 						cellId++;
@@ -101,7 +102,7 @@ function CalcularR0(){
 					}
 					calendarString += "</tr>";
 				}
-				else{
+				else{//llena la fila con los campos pertienentes y valida si alguno de ellos es el dia seleccionado
 					if(monthResult[index].day == day){
 						calendarString += "<td id=celda"+cellId+" class='Seleccionado'>"+ monthResult[index].day +"</td>";
 						cellId++;
@@ -111,18 +112,23 @@ function CalcularR0(){
 					}
 				}
 			}
+			//Termina de llenar el calendario con las celdas para los dias siguientes con el valor --
 			while(cellId%7!=0){
 				calendarString += "<td id=celda"+cellId+">--</td>";
 				cellId++;
 			}
+			//MaximumCellId contendra el valor de las celdas con el fin de poder hacer un for y pintar el calendario
 			maximumCellId = cellId;
+			//Se modifican los labels de Mes actual y fecha seleccionada
 			element.innerHTML = calendarDays + calendarString;
 			elementMesActual.innerHTML = MonthNames[month].name;
 			elementFechaSeleccionada.innerHTML = year + " / " + MonthNames[month].name + " / " + day;
 			selectedYear = year;
 			selectedMonth = MonthNames[month].name;
 			selectedDay = day;
+			//Se agrega el evento de click a la tabla creada
 			AgregarEventoTabla();
+			//Se repinta la tabla creada
 			RePintarCalendario();
 		}
 		else{
