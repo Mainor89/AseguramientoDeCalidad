@@ -212,6 +212,26 @@ function CalcularR4(){
 	}
 }
 
+//Funcion que comunica la pagina principal con el metodo de Calcular Dias Transcurridos en funcion_dias_entre_fechas.js
+function CalcularR6(){
+	var pYear1 = dom.getElementById('TxtYear1R6').value
+	var pYear2 = dom.getElementById('TxtYear2R6').value
+
+	var pMonth1 = dom.getElementById('TxtMonth1R6');
+	pMonth1 = pMonth1.options[pMonth1.selectedIndex].value
+	var pMonth2 = dom.getElementById('TxtMonth2R6');
+	pMonth2 = pMonth2.options[pMonth2.selectedIndex].value
+
+	var pDay1 = dom.getElementById('TxtDay1R6');
+	pDay1 = pDay1.options[pDay1.selectedIndex].value	
+	var pDay2 = dom.getElementById('TxtDay2R6');
+	pDay2 = pDay2.options[pDay2.selectedIndex].value
+
+	var element = dom.getElementById("ResultadoR6");
+	var result = CalcularDiferenciaDeDias(pDay1, pMonth1, pYear1, pDay2, pMonth2, pYear2);
+	element.innerHTML = result;	
+}
+
 //Permite cargar funciones a los tags o elementos seleccionados desd jquery
  function AgregarEventoTabla(){	
 	//Funcion de Click para cada td 	

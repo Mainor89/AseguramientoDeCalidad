@@ -84,14 +84,14 @@ function validar_fecha(pYear,mes,dia){
 	    }
 		
 		else{
-			alert("el año es invalido");   //si el año no es un numero entero positivo, no se contara como un año valido por lo tanto la fecha sera invalida
+			//alert("el año es invalido");   //si el año no es un numero entero positivo, no se contara como un año valido por lo tanto la fecha sera invalida
 			return false;
 		}
 	
 	}
 	
 	else{
-		alert("el año no puede estar vacio"); //si el espacio del año esta vacio se considera que la fecha es invalida
+		//alert("el año no puede estar vacio"); //si el espacio del año esta vacio se considera que la fecha es invalida
 		return false;
 		
 	}
