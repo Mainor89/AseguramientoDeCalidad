@@ -27,7 +27,7 @@ function EsNumero(pNumero) {
 
 //Valida si el dia es un numero correcto
 function ValidarDia(pDay, pMonth ,pYear){
-	var monthSize = MonthDays[pMonth].days;	
+	var monthSize = MonthDays[pMonth];	
 	if(pMonth == 1){
 		if(comprobar_bisiesto(pYear)){
 			monthSize = 29;
@@ -53,7 +53,7 @@ function CalcularR0(){
 			var element = dom.getElementById("TablaCalendario");
 			var elementMesActual = dom.getElementById("lblMesActual");
 			var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
-			var monthResult = CalcularMes(parseInt(month) + 1, year);//Se obtiene un arreglo con el valor de cada día y su respectivo día de la semana		
+			var monthResult = CalcularMes(parseInt(month) + 1, year);//Se obtiene un arreglo con el valor de cada día y su respectivo día de la semana					
 			var calendarString = "";
 			var rowId = 0;
 			var cellId = 0;
@@ -210,6 +210,35 @@ function CalcularR4(){
 	}else{		
 		element.innerHTML = "El año indtroducido no es un entero positivo mayor o igual a 1582";		
 	}
+}
+
+//
+function CalcularR5(){
+	var year = dom.getElementById('TxtYearR5').value;
+	
+	var month = dom.getElementById('TxtMonthR5');
+	month = month.options[month.selectedIndex].value;
+	
+	var day = dom.getElementById('TxtDayR5');
+	day = day.options[day.selectedIndex].value;		
+	var element = dom.getElementById('ResultadoR5');
+
+	if(validar_fecha(year,parseInt(month),day)){
+		var numero = dom.getElementById('TxtNumeroR5').value;
+		numero = Number(numero);
+		if(!isNaN(numero) && numero >= 0){
+			year = parseInt(year.toString());
+			month = parseInt(month.toString());
+			day = parseInt(day.toString());
+			numero = parseInt(numero.toString());
+			var result = sumar_n_dias(year,month,day,numero);				
+			element.innerHTML = "La fecha final sería: " + result;
+		}else{
+			element.innerHTML = "El valor a adicionar debe ser un número entero positivo";
+		}		
+	}else{
+		element.innerHTML = "La fecha introducida no es válida";
+	}	
 }
 
 //Funcion que comunica la pagina principal con el metodo de Calcular Dias Transcurridos en funcion_dias_entre_fechas.js

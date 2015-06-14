@@ -55,7 +55,7 @@ function CalcularMes(pMonth, pYear){
 	var monthResult = [];	
 	var monthStartDay = CalcularPrimerDiaMes(1, pMonth, pYear);
 	var monthId = pMonth - 1;
-	var monthSize = MonthDays[monthId].days;	
+	var monthSize = MonthDays[monthId];	
 	if(monthId === 1){
 		if(comprobar_bisiesto(pYear)){
 			monthSize = 29;

@@ -24,4 +24,3 @@ var MonthNames = [
 	{id:10, name:"Noviembre"},
 	{id:11, name:"Diciembre"}
 ];
-
