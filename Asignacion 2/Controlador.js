@@ -212,7 +212,7 @@ function CalcularR4(){
 	}
 }
 
-//
+//Funcion que comunica la pagina principal con el metodo de sumar_n_dias en Sumar_n_dias_a_fecha.js
 function CalcularR5(){
 	var year = dom.getElementById('TxtYearR5').value;
 	
