@@ -1,10 +1,9 @@
 
 //Esta función recibe por parametro el año, mes y día introducidos por el usuario y le suma la cantidad de días introducida por el usuario 
-function sumar_n_dias(pYear,mes,dia,Cantidad_dias_a_sumar){
-	
+function sumar_n_dias(pYear,mes,dia,Cantidad_dias_a_sumar){	
 	//Condición que detiene la recursión, si la cantidad de días alcanza el número 0 se devuelve la fecha resultante
-	if(Cantidad_dias_a_sumar==0){
-		 var string_resultado = pYear.toString()+"/"+MonthNames[mes].name+"/"+dia.toString();		 //String que concatena la fecha en formato Año/Mes/Día
+	if(Cantidad_dias_a_sumar==0){		
+		 var string_resultado = pYear.toString()+"/"+MonthNames[mes].name+"/"+dia.toString();		 //String que concatena la fecha en formato Año/Mes/Día		 
 		 return string_resultado; 
 	}
 	
@@ -31,8 +30,8 @@ function sumar_n_dias(pYear,mes,dia,Cantidad_dias_a_sumar){
 			dia=1; //establece el dia en el primero del mes
 			
 			//Si el mes es diciembre hace el cambio para que el mes pase a ser Enero del año siguiente
-			if(mes==12){
-				mes=1; //Cambia el mes a Enero
+			if(mes==11){
+				mes=0; //Cambia el mes a Enero
 				pYear++; //Establece el año actual en el año siguiente
 			}
 			else{
