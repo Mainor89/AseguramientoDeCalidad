@@ -49,7 +49,7 @@ function CalcularR0(){
 	day = day.options[day.selectedIndex].value
 	if(EsNumero(year)){//Se valida el parametro año
 		year = parseInt(year);
-		if(ValidarDia(day,month,year)){	//Se valida el día que se introdujo
+		if(ValidarDia(day,month,year) && validar_fecha(year,month,day)){	//Se valida el día que se introdujo
 			var element = dom.getElementById("TablaCalendario");
 			var elementMesActual = dom.getElementById("lblMesActual");
 			var elementFechaSeleccionada = dom.getElementById("lblFechaSeleccionada");
@@ -132,7 +132,7 @@ function CalcularR0(){
 			RePintarCalendario();
 		}
 		else{
-			alert("El día introducido es mayor a la cantidad de días para ese mes");					
+			alert("La fecha introducida no es válida");					
 		}
 	}else{		
 		alert("El año introducido no es un entero positivo mayor o igual a 1582");		
@@ -196,7 +196,11 @@ function CalcularR3(){
 	day = day.options[day.selectedIndex].value;		
 	var result = encontrar_dia_siguiente(year,parseInt(month.toString()),day.toString());
 	var element = dom.getElementById("ResultadoR3");
-	element.innerHTML = "El día siguiente es: " + result;
+	if(result[0] != 0){
+		element.innerHTML = "El día siguiente es: " + result[0] + " de " + MonthNames[result[1]].name + " del " + result[2];
+	}else{		
+		element.innerHTML = "El día siguiente es: Fecha inválida, es imposible encontrar el día siguiente";
+	}	
 }
 
 //Funcion que comunica la pagina principal con el metodo de Calcular Primer Dia en Funciones de obtener dia.js

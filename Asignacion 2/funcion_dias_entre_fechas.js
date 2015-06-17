@@ -1,23 +1,6 @@
 //Lista de los meses con los dias que tienen, febrero no esta contemplado como bisiesto
 var MonthDays = [31,28,31,30,31,30,31,31,30,31,30,31];
 
-//Compara ambas fechas y retorna verdadero en caso de que la fecha 2 sea mayor que la fecha 1
-function ValidarComparacionFechas(pDay1, pMonth1, pYear1, pDay2, pMonth2, pYear2){
-	var fechaValida = true;
-	if(pYear1 > pYear2){
-		fechaValida = false;
-	}else{
-		if(pYear1 == pYear2 && pMonth1 > pMonth2){
-			fechaValida = false;
-		}else{
-			if(pYear1 == pYear2 && pMonth1 == pMonth2 && pDay1 >= pDay2){
-				fechaValida = false;			
-			}
-		}
-	}
-	return fechaValida;
-}
-
 //Obtiene los dias transcurridos a partir del primero de enero del año dado
 //retorna la cantidad de dias para llegar a la fecha indicada
 function ObtenerDiasTransacurridos(pDay, pMonth, pYear){

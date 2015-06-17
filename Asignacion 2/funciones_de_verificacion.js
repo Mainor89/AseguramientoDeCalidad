@@ -1,3 +1,21 @@
+//Compara ambas fechas y retorna verdadero en caso de que la fecha 2 sea mayor que la fecha 1
+function ValidarComparacionFechas(pDay1, pMonth1, pYear1, pDay2, pMonth2, pYear2){
+	var fechaValida = true;
+	if(pYear1 > pYear2){
+		fechaValida = false;
+	}else{
+		if(pYear1 == pYear2 && pMonth1 > pMonth2){
+			fechaValida = false;
+		}else{
+			if(pYear1 == pYear2 && pMonth1 == pMonth2 && pDay1 >= pDay2){
+				fechaValida = false;			
+			}
+		}
+	}
+	return fechaValida;
+}
+
+
 /*Función que determina si el año ingresado es un numero entero positivo, la función recibe un string 
 que contiene el año que será analizado, evalua que todos los caracteres del string sean numericos, en caso de no
 serlo retorna falso */
@@ -72,8 +90,12 @@ function validar_fecha(pYear,mes,dia){
 		  
 		  //analiza si el dia seleccionado se encuentra entre la cantidad de dias del mes escogido, retorna true en caso que si este en el rango de dias posible y false en caso contrario
 		  if(valor_entero_dia <= cantidad_dias_del_mes_seleccionado){
-			  //alert("cantidad de dias valido");
-			  return true;
+			  //alert("cantidad de dias valido");			  
+			  if(ValidarComparacionFechas(15,9,1582,valor_entero_dia,mes,valor_entero_year)){
+			  	return true;
+			  }else{
+			  	return false;
+			  }			  
 		  }
 		  else{
 			  //alert("fecha invalida"); //si el dia escogido no se encuentra en el rango de dias posibles, se considera que la fecha es invalida
