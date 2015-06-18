@@ -91,7 +91,7 @@ function validar_fecha(pYear,mes,dia){
 		  //analiza si el dia seleccionado se encuentra entre la cantidad de dias del mes escogido, retorna true en caso que si este en el rango de dias posible y false en caso contrario
 		  if(valor_entero_dia <= cantidad_dias_del_mes_seleccionado){
 			  //alert("cantidad de dias valido");			  
-			  if(ValidarComparacionFechas(15,9,1582,valor_entero_dia,mes,valor_entero_year)){
+			  if(ValidarComparacionFechas(14,9,1582,valor_entero_dia,mes,valor_entero_year)){
 			  	return true;
 			  }else{
 			  	return false;
